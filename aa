@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise Love Box</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300;400&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to top right, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png');
+      z-index: 0;
+      animation: twinkle 50s linear infinite;
+    }
+
+    @keyframes twinkle {
+      0% { background-position: 0 0; }
+      100% { background-position: -10000px 5000px; }
+    }
+
+    .love-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #ff66cc;
+      border-radius: 30px;
+      padding: 2rem 3rem;
+      max-width: 700px;
+      text-align: center;
+      box-shadow: 0 0 30px #ff66cc;
+      z-index: 2;
+      animation: fadeInUp 2s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #ff99ff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #ffe6f2;
+      text-shadow: 0 0 5px #ff99cc;
+    }
+
+    .custom-image {
+      width: 200px;
+      height: auto;
+      border-radius: 20px;
+      margin: 1rem auto;
+      box-shadow: 0 0 15px #ff66cc;
+    }
+
+    .button-box {
+      margin-top: 2rem;
+    }
+
+    .btn {
+      background: #ff3399;
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff66cc;
+      transition: background 0.4s ease;
+    }
+
+    .btn:hover {
+      background: #e60073;
+    }
+
+    .heart {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: url('https://i.imgur.com/QpXJpU8.png') no-repeat center/contain;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-800px) scale(1); opacity: 0; }
+    }
+
+    .response-box {
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
+      color: #ffb3d9;
+      text-shadow: 0 0 10px pink;
+      font-weight: bold;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="love-box">
+    <h1>MY LOVE 💓</h1>
+    <img src="https://i.imgur.com/ROxkUfd.jpeg" alt="Us" class="custom-image">
+    <p>She is the most beautiful<br>
+      she is the sweetest<br>
+      she's so damn gorgeous<br>
+      I can't take my eyes off her<br>
+      Her smile lights up my whole world<br>
+      Her eyes have a universe in them<br>
+      just hearing her name makes me happy<br>
+      I wait for her every single moment<br>
+      Everything she says feels like heaven<br>
+      Her one smile can fix my whole day<br>
+      When I'm with her let time freezes<br>
+      Every moment with her feels magical<br>
+      Her voice is the calm in my chaos<br>
+      One glance from her and I lose myself<br>
+      THE WHOLE WORLD FADES and she's all I see<br>
+      NO MATTER HOW BUSY MY LIFE GETS YOU WILL BE IN MY MIND<br>
+      EVERYTHING FEELS RIGHT WHEN YOU'RE AROUND<br>
+      IK THERE ARE MANY BEAUTIFUL WOMEN<br>
+      BUT YOU'RE MY ONLY ONE<br>
+      I'M COMPLETELY IN LOVE WITH HER 💓</p>
+    <div class="button-box">
+      <button class="btn" onclick="showLoveMessage()">Do you love me, Nandhuu? 💖</button>
+    </div>
+    <div id="response" class="response-box"></div>
+  </div>
+
+  <!-- Floating Hearts -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (4 + Math.random() * 6) + 's';
+      document.body.appendChild(heart);
+    }
+
+    function showLoveMessage() {
+      const response = document.getElementById('response');
+      response.textContent = 'I love you too! Forever 💞';
+    }
+  </script>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>
